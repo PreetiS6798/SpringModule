@@ -13,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 /**
@@ -45,10 +43,17 @@ public class Insurance implements Serializable {
 	@Column(name="INSURANCE_POLICYTYPE")
 	private int insurancePolicytype;
 
+	
 	//bi-directional many-to-one association to Customer
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="CUST_ID")
 	private Customer customer;
+	
+	@OneToOne(mappedBy="insurance",  fetch = FetchType.LAZY)
+	private Travel travel;
+	
+	@OneToOne(mappedBy="insurance",  fetch = FetchType.LAZY)
+	private Vehicle vehicle;
 
 //	//bi-directional one-to-one association to Claim
 //	@OneToOne(mappedBy="insurance")
@@ -59,7 +64,8 @@ public class Insurance implements Serializable {
 //	private Payment payment;
 //
 //	//bi-directional one-to-one association to Travel
-//	@OneToOne(mappedBy="insurance")
+//	@OneToOne
+//	@JoinColumn(name="TRAVELID")
 //	private Travel travel;
 //
 //	//bi-directional one-to-one association to Vehicle
@@ -133,20 +139,20 @@ public class Insurance implements Serializable {
 //		this.payment = payment;
 //	}
 //
-//	public Travel getTravel() {
-//		return this.travel;
-//	}
+	public Travel getTravel() {
+		return this.travel;
+	}
+
+	public void setTravel(Travel travel) {
+		this.travel = travel;
+	}
 //
-//	public void setTravel(Travel travel) {
-//		this.travel = travel;
-//	}
-//
-//	public Vehicle getVehicle() {
-//		return this.vehicle;
-//	}
-//
-//	public void setVehicle(Vehicle vehicle) {
-//		this.vehicle = vehicle;
-//	}
+	public Vehicle getVehicle() {
+		return this.vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
 
 }

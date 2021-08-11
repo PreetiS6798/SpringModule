@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -90,12 +91,12 @@ public class Member implements Serializable {
 		this.memberRelationship = memberRelationship;
 	}
 //
-	public Travel getTravel() {
-		return this.travel;
-	}
-
-	public void setTravel(Travel travel) {
-		this.travel = travel;
-	}
+//	public Travel getTravel() {
+//		return this.travel;
+//	}
+//
+//	public void setTravel(Travel travel) {
+//		this.travel = travel;
+//	}
 
 }

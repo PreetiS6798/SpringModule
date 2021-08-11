@@ -18,64 +18,67 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 /**
  * The persistent class for the TRAVEL database table.
  * 
  */
 @Entity
-@Table(name="travel")
+@Table(name = "travel")
 public class Travel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "TRAVELID")
 	private int travelid;
 
-	@Column(name="NOMINEE_NAME")
+	@Column(name = "NOMINEE_NAME")
 	private String nomineeName;
 
-	@Column(name="NOMINEE_RELATIONSHIP")
+	@Column(name = "NOMINEE_RELATIONSHIP")
 	private String nomineeRelationship;
 
-	@Column(name="TRAVEL_CONTACT")
-	private int travelContact;
+	@Column(name = "TRAVEL_CONTACT")
+	private long travelContact;
 
-	@Column(name="TRAVEL_DESTINATION")
+	@Column(name = "TRAVEL_DESTINATION")
 	private String travelDestination;
 
-	@Column(name="TRAVEL_EMAIL")
+	@Column(name = "TRAVEL_EMAIL")
 	private String travelEmail;
 
 //	@Temporal(TemporalType.DATE)
-	@Column(name="TRAVEL_ENDDATE")
+	@Column(name = "TRAVEL_ENDDATE")
 	private LocalDate travelEnddate;
 
-	@Column(name="TRAVEL_MODEOFTRAVEL")
+	@Column(name = "TRAVEL_MODEOFTRAVEL")
 	private String travelModeoftravel;
 
-	@Column(name="TRAVEL_NOOFMEMBERS")
+	@Column(name = "TRAVEL_NOOFMEMBERS")
 	private int travelNoofmembers;
 
-	@Column(name="TRAVEL_POLICYPLAN")
+	@Column(name = "TRAVEL_POLICYPLAN")
 	private int travelPolicyplan;
 
 //	@Temporal(TemporalType.DATE)
-	@Column(name="TRAVEL_STARTDATE")
+	@Column(name = "TRAVEL_STARTDATE")
 	private LocalDate travelStartdate;
 
-	//bi-directional many-to-one association to Member
-	@OneToMany(mappedBy="travel", fetch=FetchType.LAZY)
+	// bi-directional many-to-one association to Customer
+	@ManyToOne
+	@JoinColumn(name = "CUST_ID")
+	private Customer customer;
+
+	// bi-directional many-to-one association to Member
+	@OneToMany(mappedBy = "travel", fetch = FetchType.LAZY)
 	private Set<Member> members;
 
-//	//bi-directional many-to-one association to Customer
-//	@ManyToOne
-//	@JoinColumn(name="CUST_ID")
-//	private Customer customer;
-
 //	//bi-directional one-to-one association to Insurance
-//	@OneToOne
-//	@JoinColumn(name="INSURANCE_ID")
+	@OneToOne
+	@JoinColumn(name="INSURANCE_ID")
+	private Insurance insurance;
+	
+//	@OneToOne(mappedBy = "travel", fetch = FetchType.LAZY)
 //	private Insurance insurance;
 
 	public Travel() {
@@ -105,11 +108,11 @@ public class Travel implements Serializable {
 		this.nomineeRelationship = nomineeRelationship;
 	}
 
-	public int getTravelContact() {
+	public long getTravelContact() {
 		return this.travelContact;
 	}
 
-	public void setTravelContact(int travelContact) {
+	public void setTravelContact(long travelContact) {
 		this.travelContact = travelContact;
 	}
 

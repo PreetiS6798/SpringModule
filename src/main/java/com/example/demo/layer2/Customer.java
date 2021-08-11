@@ -34,11 +34,11 @@ public class Customer implements Serializable {
 	@Column(name="CUST_PASSWORD")
 	private String custPassword;
 
-	//bi-directional many-to-one association to Insurance
+//	//bi-directional many-to-one association to Insurance
 	@OneToMany(mappedBy="customer", fetch=FetchType.LAZY)
 	private Set<Insurance> insurances;
 
-//	//bi-directional many-to-one association to Travel
+//	bi-directional many-to-one association to Travel
 //	@OneToMany(mappedBy="customer", fetch=FetchType.LAZY)
 //	private Set<Travel> travels;
 //
@@ -118,7 +118,7 @@ public class Customer implements Serializable {
 //
 //		return insurance;
 //	}
-
+//
 //	public Set<Travel> getTravels() {
 //		return this.travels;
 //	}

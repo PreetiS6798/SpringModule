@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.layer2.Insurance;
+import com.example.demo.layer2.Travel;
 import com.example.demo.layer4.InsuranceServiceImpl;
 
 @CrossOrigin
@@ -32,5 +33,13 @@ public class InsuranceJPAController {
 	public List<Insurance> getInsuranceByCustomerId(@PathVariable int customerId){
 		System.out.println("in getInsuranceByCustomerId() ... method");
 		return insService.selectCustomerByIdService(customerId);
+	}
+	
+	@GetMapping
+	@ResponseBody
+	@RequestMapping(value="/getTravel/{travelId}")
+	public List<Travel> getTravelById(@PathVariable int travelId){
+		System.out.println("in getInsuranceByCustomerId() ... method");
+		return insService.selectTravelByIdService(travelId);
 	}
 }

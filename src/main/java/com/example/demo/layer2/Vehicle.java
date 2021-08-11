@@ -48,12 +48,15 @@ public class Vehicle implements Serializable {
 	@Column(name="VEHICLE_TYPE")
 	private Integer vehicleType;
 	
-	
 
-//	//bi-directional many-to-one association to Customer
+	//bi-directional many-to-one association to Customer
 //	@ManyToOne
 //	@JoinColumn(name="CUST_ID")
 //	private Customer customer;
+	
+	@OneToOne
+	@JoinColumn(name="INSURANCE_ID")
+	private Insurance insurance;
 //
 //	//bi-directional one-to-one association to Insurance
 //	@OneToOne
