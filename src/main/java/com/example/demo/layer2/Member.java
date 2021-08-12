@@ -91,12 +91,12 @@ public class Member implements Serializable {
 		this.memberRelationship = memberRelationship;
 	}
 //
-//	public Travel getTravel() {
-//		return this.travel;
-//	}
-//
-//	public void setTravel(Travel travel) {
-//		this.travel = travel;
-//	}
+	public int getTravel() {
+		return this.travel.getTravelid();
+	}
+
+	public void setTravel(Travel travel) {
+		this.travel = travel;
+	}
 
 }

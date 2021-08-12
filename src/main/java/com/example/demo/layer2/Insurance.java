@@ -115,13 +115,13 @@ public class Insurance implements Serializable {
 		this.insurancePolicytype = insurancePolicytype;
 	}
 
-//	public Customer getCustomer() {
-//		return this.customer;
-//	}
-//
-//	public void setCustomer(Customer customer) {
-//		this.customer = customer;
-//	}
+	public int getCustomer() {
+		return this.customer.getCustId();
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 //	public Claim getClaim() {
 //		return this.claim;

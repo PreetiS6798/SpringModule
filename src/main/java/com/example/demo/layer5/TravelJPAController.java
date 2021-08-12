@@ -15,27 +15,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.layer2.Insurance;
 import com.example.demo.layer2.Travel;
 import com.example.demo.layer4.InsuranceServiceImpl;
+import com.example.demo.layer4.TravelServiceImpl;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/insurance")
-public class InsuranceJPAController {
+@RequestMapping("/travel")
+public class TravelJPAController {
 
-	public InsuranceJPAController() {
-		System.out.println("In Layer 5 Insurance Controller");
+	public TravelJPAController() {
+		System.out.println("In Layer 5 Travel Controller");
 	}
 
 	
 	@Autowired
-	InsuranceServiceImpl insuranceService;
+	TravelServiceImpl travelService;
+	
 	
 	@GetMapping
 	@ResponseBody
-	@RequestMapping(value="/getCustomer/{customerId}")
-	public List<Insurance> getInsuranceByCustomerId(@PathVariable int customerId){
+	@RequestMapping(value="/getTravel/{travelId}")
+	public List<Travel> getTravelById(@PathVariable int travelId){
 		System.out.println("in getInsuranceByCustomerId() ... method");
-		return insuranceService.selectCustomerByIdService(customerId);
+		return travelService.selectTravelByIdService(travelId);
 	}
 	
+	@PostMapping
+	@ResponseBody
+	@RequestMapping(value = "/addTravel")
+	public void addTravel(@RequestBody Travel travel) {
+		travelService.insertTravelService(travel);
+	 }
 	
 }

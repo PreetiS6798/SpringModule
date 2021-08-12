@@ -42,4 +42,11 @@ public class InsuranceRepositoryImpl  extends BaseRepository implements Insuranc
 		return travelList;
 	}
 
+	@Transactional
+	public void insertTravel(Travel tra) {
+		EntityManager entityManager = getEntityManager();
+		entityManager.persist(tra);
+		System.out.println("travel inserted..."+tra);
+	}
+
 }

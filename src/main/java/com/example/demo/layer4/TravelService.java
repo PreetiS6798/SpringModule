@@ -8,10 +8,8 @@ import com.example.demo.layer2.Insurance;
 import com.example.demo.layer2.Travel;
 
 @Service
-public interface InsuranceService {
+public interface TravelService {
 
-	void insertInsuranceService(Insurance ins);
-	List<Insurance> selectCustomerByIdService(int customerId);
 	List<Travel> selectTravelByIdService(int travelId);
 	void insertTravelService(Travel tra);
 }

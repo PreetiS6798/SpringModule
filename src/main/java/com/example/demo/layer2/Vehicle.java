@@ -45,7 +45,7 @@ public class Vehicle implements Serializable {
 	@Column(name="VEHICLE_REGISTRATIONNO")
 	private String vehicleRegistrationno;
 
-	@Column(name="VEHICLE_TYPE")
+	@Column(name="VECHICLE_TYPE")
 	private Integer vehicleType;
 	
 

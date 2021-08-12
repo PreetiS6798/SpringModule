@@ -194,20 +194,20 @@ public class Travel implements Serializable {
 //		return member;
 //	}
 
-//	public Customer getCustomer() {
-//		return this.customer;
-//	}
+	public int getCustomer() {
+		return this.customer.getCustId();
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 //
-//	public void setCustomer(Customer customer) {
-//		this.customer = customer;
-//	}
-//
-//	public Insurance getInsurance() {
-//		return this.insurance;
-//	}
-//
-//	public void setInsurance(Insurance insurance) {
-//		this.insurance = insurance;
-//	}
+	public int getInsurance() {
+		return this.insurance.getInsuranceId();
+	}
+
+	public void setInsurance(Insurance insurance) {
+		this.insurance = insurance;
+	}
 
 }

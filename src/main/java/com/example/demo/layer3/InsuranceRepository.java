@@ -12,5 +12,4 @@ import com.example.demo.layer2.Travel;
 public interface InsuranceRepository {
 	void insertInsurance(Insurance ins);
 	List<Insurance> selectCustomerById(int customerId);
-	List<Travel> selectTravelById(int travelId);
 }
