@@ -28,11 +28,42 @@ public class Payment implements Serializable {
 	private Insurance insurance;
 
 	public Payment() {
+		
 	}
+
+
+
+//	public Payment(int paymentAmount, int InsuranceId) {
+//		
+//		this.paymentAmount=paymentAmount;
+//		this.insurance=InsuranceId
+//	}
+
+
+
+//	public Payment(int paymentId, double paymentAmount, int insurance) {
+//		super();
+//		this.paymentId = paymentId;
+//		this.paymentAmount = paymentAmount;
+//		this.insurance.getInsuranceId() = insurance;
+//	}
+	
+	
+
+
 
 	public int getPaymentId() {
 		return this.paymentId;
 	}
+
+	public Payment(double paymentAmount, Insurance insurance) {
+	super();
+
+	this.paymentAmount = paymentAmount;
+	this.insurance = insurance;
+}
+
+
 
 	public void setPaymentId(int paymentId) {
 		this.paymentId = paymentId;

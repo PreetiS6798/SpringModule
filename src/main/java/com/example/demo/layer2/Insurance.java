@@ -44,6 +44,13 @@ public class Insurance implements Serializable {
 	private int insurancePolicytype;
 
 	
+	
+	
+	public Insurance(int insuranceId) {
+		super();
+		this.insuranceId = insuranceId;
+	}
+
 	//bi-directional many-to-one association to Customer
 	@ManyToOne
 	@JoinColumn(name="CUST_ID")
